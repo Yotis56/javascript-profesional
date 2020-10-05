@@ -6,6 +6,7 @@
       href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"
     />
     <link rel="stylesheet" href="./assets/index.css" />
+    <link rel="stylesheet" href="./assets/icons/material-icons.css">
   </head>
 
   <body>
@@ -19,35 +20,13 @@
         <source src="./assets/BigBuckBunny.mp4" />
       </video>
 
-      <button>Play/Pause</button>
+      <button id="playButton">Play/Pause</button>
+      <button id="muteButton"> 
+        <span class="material-icons" id="mute_icon">volume_off</span>
+        <span class="material-icons hidden" id="unmute_icon">volume_up</span>
+      </button>
     </main>
 
-    <script>
-      function MediaPlayer(config) {
-        this.media = config.el;
-      }
-
-      MediaPlayer.prototype.play = function() {
-        this.media.play();
-      };
-
-      MediaPlayer.prototype.pause = function() {
-        this.media.pause();
-      };
-
-      MediaPlayer.prototype.togglePlay = function() {
-        if (this.media.paused) {
-          this.play();
-        } else {
-          this.pause();
-        }
-      };
-
-      const video = document.querySelector('video');
-      const player = new MediaPlayer({ el: video });
-
-      const button = document.querySelector('button');
-      button.onclick = () => player.togglePlay();
-    </script>
+    <script type="module" src="./assets/index.js"></script>
   </body>
 </html>
